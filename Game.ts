@@ -4,7 +4,7 @@ module Castlevania {
 
         constructor() {
 
-            super(window.innerWidth, window.innerHeight,Phaser.CANVAS, 'content', null);
+            super(480, 800,Phaser.CANVAS, 'content', null);
 
             this.state.add('Boot', Boot, false);
             this.state.add('Preloader', Preloader, false);
