@@ -1,13 +1,14 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-
 # Folder config file
 Desktop.ini
-
+*.config
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
+game.js
+Game.js.map
 # Windows Installer files
 *.cab
 *.msi
@@ -26,7 +27,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
