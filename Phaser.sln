@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phaser", "Phaser\Phaser.csproj", "{B01EC3F1-2BC7-45AD-AB2C-318F37667D65}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phaser", "Phaser.csproj", "{B01EC3F1-2BC7-45AD-AB2C-318F37667D65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
