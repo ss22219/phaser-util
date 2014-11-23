@@ -4,6 +4,7 @@
     pointCount: number;
     stopCount: number;
     y: number;
+    timer: Phaser.Timer;
 
     public constructor(state: Phaser.State, y?: number, pointCount: number = 4) {
         this.points = [];
@@ -15,14 +16,25 @@
         }
         this.y = y;
         state.game.physics.startSystem(Phaser.Physics.ARCADE);
+
+        this.timer = state.time.create();
+        this.timer.loop(100, this.update, this);
+        this.timer.start();
+
         this.generatePoint();
         this.setAcceleration();
-        var oldCallback = state.game.state.onUpdateCallback;
-        var that = this;
-        state.game.state.onUpdateCallback = function (game) {
-            oldCallback.call(this,game);
-            that.update();
-        };
+    }
+
+    public destroy() {
+        if (this.timer == null)
+            return;
+        this.timer.destroy();
+        for (var i = 0; i < this.points.length; i++) {
+            (<Phaser.Sprite>this.points[i]).kill();
+            this.points[i] = null;
+        }
+        this.timer = null;
+        this.points = null;
     }
 
     checkAndStopPoint() {
@@ -72,7 +84,7 @@
             this.stopCount = 0;
         }
     }
-    
+
     generatePoint() {
         var bmd = this.state.add.bitmapData(4, 4);
         bmd.ctx.beginPath();
@@ -88,6 +100,8 @@
     }
 
     setAcceleration(index?: number) {
+        if (this.timer == null)
+            return;
         if (typeof index == "undefined") {
             var timer = this.state.time.create();
             for (var i = 0; i < this.points.length; i++) {

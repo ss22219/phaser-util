@@ -71,11 +71,22 @@
     }
 
     draw(bitmap: Phaser.BitmapData, color: string, width: number = this._width) {
+        if (!bitmap)
+            return;
         bitmap.clear();
         bitmap.ctx.beginPath();
         bitmap.ctx.fillStyle = color;
         bitmap.ctx.rect(0, 0, width, this._height);
         bitmap.ctx.fill();
         bitmap.ctx.closePath();
+    }
+
+    public destroy() {
+        this._background.kill();
+        this._process.kill();
+        this._process = null;
+        this._background = null;
+        this._backgroundBitmapData = null;
+        this._processBitmapData = null;
     }
 }

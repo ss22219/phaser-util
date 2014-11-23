@@ -8,6 +8,7 @@
     private _text: string;
     private _onClick: Phaser.Signal;
     private _state: Phaser.State;
+    private holded: boolean;
     public get border(): Phaser.Graphics {
         return this._border;
     }
@@ -68,27 +69,31 @@
         this._textSprite = this._state.add.text(x, y, text, { fill: "#CDCDCD", font: "12px 新宋体" });
         this._textSprite.anchor.set(0.5, 0.5);
         this.draw();
-        this._state.input.onDown.add( ()=> {
-            if (this._state.input.activePointer.worldX > this.border.x && this._state.input.activePointer.worldX < this.border.x + this.textSprite.width + 50) {
-                if (this._state.input.activePointer.worldY > this.border.y && this._state.input.activePointer.worldY < this.border.y + this.textSprite.height + 10) {
-                    this.draw(true);
-                    this.holded = true;
-                }
-            }
-        }, this);
-        this._state.input.onUp.add(() => {
-            if (!this.holded)
-                return;
-            if (this._state.input.activePointer.worldX > this.border.x && this._state.input.activePointer.worldX < this.border.x + this.textSprite.width + 50) {
-                if (this._state.input.activePointer.worldY > this.border.y && this._state.input.activePointer.worldY < this.border.y + this.textSprite.height + 10) {
-                    this.OnClick.dispatch();
-                }
-            }
-            this.holded = false;
-            this.draw();
-        });
+        this._state.input.onDown.add(this.onDown, this);
+        this._state.input.onUp.add(this.onUp, this);
     }
-    holded: boolean;
+
+    onDown() {
+        if (this._state.input.activePointer.worldX > this.border.x && this._state.input.activePointer.worldX < this.border.x + this.textSprite.width + 50) {
+            if (this._state.input.activePointer.worldY > this.border.y && this._state.input.activePointer.worldY < this.border.y + this.textSprite.height + 10) {
+                this.draw(true);
+                this.holded = true;
+            }
+        }
+    }
+
+    onUp() {
+        if (!this.holded)
+            return;
+        if (this._state.input.activePointer.worldX > this.border.x && this._state.input.activePointer.worldX < this.border.x + this.textSprite.width + 50) {
+            if (this._state.input.activePointer.worldY > this.border.y && this._state.input.activePointer.worldY < this.border.y + this.textSprite.height + 10) {
+                this.OnClick.dispatch();
+            }
+        }
+        this.holded = false;
+        this.draw();
+    }
+
     draw(hold: boolean = false) {
         var color = hold ? 0x4ba8ff :0x626263 ;
         this._textSprite.x = this.x;
@@ -110,5 +115,19 @@
         if (hold) {
             this.border.endFill();
         }
+    }
+
+    public destroy(): void{
+        this._border.destroy();
+        this._textSprite.destroy();
+        this._state.input.onDown.remove(this.onDown, this);
+        this._state.input.onUp.remove(this.onUp, this);
+        setTimeout(() => {
+            this._border = null;
+            this._textSprite = null;
+            this._onClick = null;
+            this._text = null;
+            this._state = null;
+        });
     }
 } 

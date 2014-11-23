@@ -23,7 +23,7 @@
         this.sprite.anchor.set(0.5, 0.5);
         this.sprite.x = x;
         this.sprite.y = y;
-        state.add.tween(this.sprite).to({ angle: 360 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+        this.state.add.tween(this.sprite).to({ angle: 360 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true);
         this.timer = state.time.create();
         this.timer.loop(10, this.update, this);
         this.timer.start();
@@ -57,5 +57,11 @@
     public stop() {
         this.tween.stop();
         this.timer.stop();
+    }
+
+    public destroy() {
+        this.sprite.kill();
+        this.timer.destroy();
+        this.state.tweens.remove(this.tween);
     }
 } 
