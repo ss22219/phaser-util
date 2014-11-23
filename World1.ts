@@ -4,6 +4,8 @@
         var background = this.add.sprite(0, 0, "background");
         this.game.world.setBounds(0, 0, background.width, background.height);
         this.input.addMoveCallback((point: Phaser.Pointer, x: number, y: number, down: boolean) => {
+            if (this.input.pointer2 != null)
+                return;
             if (down == true){
                 this.x = point.x;
                 this.y = point.y;
