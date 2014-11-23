@@ -59,14 +59,14 @@
         return this._onClick;
     }
 
-    public constructor(state: Phaser.State, x: number, y: number, text: string) {
+    public constructor(state: Phaser.State, x: number, y: number, text: string, fontStyle?:any) {
         this._x = x;
         this._y = y;
         this._state = state;
         this._text = text;
         this._onClick = new Phaser.Signal();
         this._border = this._state.add.graphics(0, 0);
-        this._textSprite = this._state.add.text(x, y, text, { fill: "#CDCDCD", font: "12px 新宋体" });
+        this._textSprite = this._state.add.text(x, y, text, fontStyle ? fontStyle : { fill: "#CDCDCD", font: "12px 新宋体" });
         this._textSprite.anchor.set(0.5, 0.5);
         this.draw();
         this._state.input.onDown.add(this.onDown, this);
