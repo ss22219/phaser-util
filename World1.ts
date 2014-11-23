@@ -1,20 +1,32 @@
 ﻿class World1 extends Phaser.State {
-    x: number; y: number;
+    point: Phaser.Point;
+    point2: Phaser.Point;
+    distance: number;
     create() {
+        this.point = new Phaser.Point();
+        this.point2 = new Phaser.Point();
         var background = this.add.sprite(0, 0, "background");
         this.game.world.setBounds(0, 0, background.width, background.height);
         this.input.addMoveCallback((point: Phaser.Pointer, x: number, y: number, down: boolean) => {
-            if (this.input.pointer2.isDown)
-                return;
-            if (down == true){
-                this.x = point.x;
-                this.y = point.y;
-            }
-            if (point.isDown) {
-                this.camera.x -= x - this.x;
-                this.camera.y -= y - this.y;
-                this.x = point.x;
-                this.y = point.y;
+            if (this.input.pointer2.isDown && this.input.pointer1.isDown) {
+                if (down) {
+                    this.point2.set(x, y);
+                    this.distance = this.point.distance(this.point2);
+                } else {
+                    var distance = this.point.distance(this.point2);
+                    var scale = (this.distance - distance) / this.camera.width;
+                    this.camera.scale.add(scale, scale);
+                    this.distance = distance;
+                }
+            } else {
+                if (down == true) {
+                    this.point.set(x, y);
+                }
+                else if (point.isDown) {
+                    this.camera.x -= x - this.point.x;
+                    this.camera.y -= y - this.point.y;
+                    this.point.set(x, y);
+                }
             }
         }, this);
     }
