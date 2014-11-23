@@ -45,6 +45,7 @@
     <TypeScriptCompile Include="PointLoadProgress.ts" />
     <TypeScriptCompile Include="Preloader.ts" />
     <TypeScriptCompile Include="SimpleButton.ts" />
+    <TypeScriptCompile Include="World1.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
