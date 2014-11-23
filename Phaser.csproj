@@ -19,23 +19,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
-    <Content Include="assets\again.png" />
-    <Content Include="assets\back.jpg" />
-    <Content Include="assets\back_start.jpg" />
-    <Content Include="assets\button.png" />
-    <Content Include="assets\button_start.png" />
-    <Content Include="assets\go.png" />
-    <Content Include="assets\gobaidu.png" />
-    <Content Include="assets\hole.png" />
-    <Content Include="assets\level1.png" />
-    <Content Include="assets\loader.png" />
-    <Content Include="assets\logo.png" />
-    <Content Include="assets\no_name.png" />
-    <Content Include="assets\pangxie.png" />
-    <Content Include="assets\pangxie_putdown.png" />
-    <Content Include="assets\simon.png" />
-    <Content Include="assets\title.mp3" />
-    <Content Include="assets\titlepage.jpg" />
+    <Content Include="assets\background.jpg" />
     <Content Include="default.htm" />
     <Content Include="web.config" />
   </ItemGroup>

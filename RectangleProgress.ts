@@ -52,7 +52,7 @@
         this._process.y = y;
         this._background.y = y;
     }
-    public constructor(state: Phaser.State,x:number,y:number,height:number,width:number,progressColor:string,backgroundColor:string) {
+    public constructor(state: Phaser.State, x: number, y: number, height: number, width: number, progressColor: string = "rgb(0,151,251)", backgroundColor: string = "rgb(32,77,108)") {
         this._x = x;
         this._y = y;
         this._height = height;

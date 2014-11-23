@@ -18,7 +18,7 @@
         state.game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.timer = state.time.create();
-        this.timer.loop(100, this.update, this);
+        this.timer.loop(10, this.update, this);
         this.timer.start();
 
         this.generatePoint();
