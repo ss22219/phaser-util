@@ -35,13 +35,10 @@
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="ArcLoadProgress.ts" />
     <TypeScriptCompile Include="Boot.ts" />
+    <TypeScriptCompile Include="DebugTool.ts" />
     <TypeScriptCompile Include="RectangleProgress.ts" />
     <TypeScriptCompile Include="Game.ts" />
-    <TypeScriptCompile Include="Hole.ts" />
-    <TypeScriptCompile Include="MainMenu.ts" />
-    <TypeScriptCompile Include="Pengxie.ts" />
     <TypeScriptCompile Include="phaser.d.ts" />
-    <TypeScriptCompile Include="Play.ts" />
     <TypeScriptCompile Include="PointLoadProgress.ts" />
     <TypeScriptCompile Include="Preloader.ts" />
     <TypeScriptCompile Include="SimpleButton.ts" />
