@@ -13,7 +13,7 @@
         }
 
         create() {
-            //this.game.state.start("World1")
+            this.game.state.start("World1")
         }
 
         update() {

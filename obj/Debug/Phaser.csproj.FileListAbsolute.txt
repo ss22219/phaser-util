@@ -1,0 +1,6 @@
+F:\www\phaser-util\bin\Phaser.dll.config
+F:\www\phaser-util\bin\Phaser.dll
+F:\www\phaser-util\bin\Phaser.pdb
+F:\www\phaser-util\obj\Debug\Phaser.dll
+F:\www\phaser-util\obj\Debug\Phaser.pdb
+F:\www\phaser-util\obj\Debug\Phaser.csprojResolveAssemblyReference.cache
