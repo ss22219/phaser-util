@@ -5,7 +5,7 @@ module Castlevania {
         constructor() {
 
             super(480, 800,Phaser.AUTO, 'content', null);
-
+            //super(window.innerWidth, window.innerHeight, Phaser.AUTO, 'content', null);
             this.state.add('Boot', Boot, false);
             this.state.add('Preloader', Preloader, false);
             this.state.add('World1', World1, false);

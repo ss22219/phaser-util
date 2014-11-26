@@ -20,6 +20,8 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="assets\background.jpg" />
+    <Content Include="audio\00.前言：阿保剛 - Believe me.mp3" />
+    <Content Include="audio\02.NERDHEAD - SECRET SUMMER Feat. CHIHIRO.mp3" />
     <Content Include="default.htm" />
     <Content Include="web.config" />
   </ItemGroup>
@@ -43,6 +45,7 @@
     <TypeScriptCompile Include="Preloader.ts" />
     <TypeScriptCompile Include="SimpleButton.ts" />
     <TypeScriptCompile Include="World1.ts" />
+    <TypeScriptCompile Include="ZoomAndDrawGroup.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
