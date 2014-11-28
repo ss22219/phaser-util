@@ -19,7 +19,30 @@
         });
         this.load.audio("audio_1", "audio/02.NERDHEAD - SECRET SUMMER Feat. CHIHIRO.mp3",true);
         this.load.start();
+        window.addEventListener("resize", (event: UIEvent) => { this.windowResize(event) });
+        this.input.onDown.add(() => {
+            this.game.scale.startFullScreen(); });
     }
 
+    windowResize(event: UIEvent) {
+        var size = { width: window.innerWidth, height: window.innerHeight };
+        this.game.width = size.width;
+        this.game.height = size.height;
+        this.game.canvas.width = size.width;
+        this.game.canvas.height = size.height;
 
+        this.game.scale.width = size.width;
+        this.game.scale.height = size.width;
+
+        (<any>this.game.renderer).resize(size.width, size.height);
+        this.game.scale.setSize();
+
+        this.game.camera.setSize(size.width, size.height);
+        this.game.camera.bounds.setTo(this.game.camera.x, this.game.camera.y,size.width,size.height);
+
+        this.stage.width = size.width;
+        this.stage.height = size.height;
+
+    }
+   
 } 

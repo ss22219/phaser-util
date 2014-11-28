@@ -80,5 +80,10 @@
         this.input.mouse.onMouseWheel = (event: MouseWheelEvent) => {
             this.checkGroupScale(event.wheelDelta / 5000);
         }
+
+        window.addEventListener("resize", () => {
+            this.minScale = Math.max(this.camera.width / (<any>this.group)._width, this.camera.height /( <any>this.group)._height);
+            this.checkGroupScale(0);
+        });
     }
 } 
