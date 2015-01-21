@@ -8,6 +8,7 @@
     camera: Phaser.Camera;
     game: Phaser.Game;
     input: Phaser.Input;
+    resizeGame: boolean;
 
     checkGroupPosition(x: number, y: number) {
         var topGroupBounds = this.group.getBounds();
@@ -42,12 +43,13 @@
     /**
         group mast be a top object
     **/
-    public constructor(state: Phaser.State, group: Phaser.Group) {
+    public constructor(state: Phaser.State, group: Phaser.Group, resizeGame:boolean = false) {
         this.state = state;
         this.game = this.state.game;
         this.input = this.state.input;
         this.camera = this.state.camera;
         this.group = group;
+        this.resizeGame = resizeGame;
         this.minScale = Math.max(this.camera.width / this.group.width, this.camera.height / this.group.height);
         this.point = new Phaser.Point();
         this.point2 = new Phaser.Point();
@@ -84,6 +86,27 @@
         window.addEventListener("resize", () => {
             this.minScale = Math.max(this.camera.width / (<any>this.group)._width, this.camera.height /( <any>this.group)._height);
             this.checkGroupScale(0);
+
+            if (this.resizeGame) {
+                /** resize world、camera、canvas、stage **/
+                var size = { width: window.innerWidth, height: window.innerHeight };
+                this.game.width = size.width;
+                this.game.height = size.height;
+                this.game.canvas.width = size.width;
+                this.game.canvas.height = size.height;
+
+                this.game.scale.width = size.width;
+                this.game.scale.height = size.width;
+
+                (<any>this.game.renderer).resize(size.width, size.height);
+                this.game.scale.setSize();
+
+                this.game.camera.setSize(size.width, size.height);
+                this.game.camera.bounds.setTo(this.game.camera.x, this.game.camera.y, size.width, size.height);
+
+                this.game.stage.width = size.width;
+                this.game.stage.height = size.height;
+            }
         });
     }
 } 

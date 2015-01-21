@@ -7,9 +7,8 @@ module Castlevania {
             this.state.add('Boot', Boot, false);
             this.state.add('Preloader', Preloader, false);
             this.state.add('World1', World1, false);
-
+            this.state.add('World2', World2, false);
             this.state.start('Boot');
-
         }
 
     }

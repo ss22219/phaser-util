@@ -30,12 +30,12 @@
         var callback = state.game.state.onRenderCallback;
         state.game.state.onRenderCallback = () => {
             this.render();
-            callback();
+            callback.call(state);
         };
         var updateCallback = state.game.state.onUpdateCallback;
         state.game.state.onUpdateCallback = () => {
             this.update();
-            updateCallback();
+            updateCallback.call(state);
         };
         this.filters = filters;
         for (var key in state) {
@@ -74,7 +74,7 @@
         this.state.game.debug.text("点击对象开始调试，按 J,K 旋转对象，按 Z 打印对象信息", 10, 30, "#000000", "15px 新宋体");
         if (!this.debugObg)
             return;
-        this.state.game.debug.pixel(this.debugObg.x, this.debugObg.y, "#000000", 20);
+        this.state.game.debug.pixel(this.debugObg.x - 2.5, this.debugObg.y - 2.5, "#000000", 5);
         this.state.game.debug.spriteBounds(this.debugObg);
     }
 

@@ -38,6 +38,7 @@
     <TypeScriptCompile Include="ArcLoadProgress.ts" />
     <TypeScriptCompile Include="Boot.ts" />
     <TypeScriptCompile Include="DebugTool.ts" />
+    <TypeScriptCompile Include="MobileOrientation.ts" />
     <TypeScriptCompile Include="RectangleProgress.ts" />
     <TypeScriptCompile Include="Game.ts" />
     <TypeScriptCompile Include="phaser.d.ts" />
@@ -45,6 +46,7 @@
     <TypeScriptCompile Include="Preloader.ts" />
     <TypeScriptCompile Include="SimpleButton.ts" />
     <TypeScriptCompile Include="World1.ts" />
+    <TypeScriptCompile Include="World2.ts" />
     <TypeScriptCompile Include="ZoomAndDrawGroup.ts" />
   </ItemGroup>
   <PropertyGroup>
@@ -77,7 +79,8 @@
     <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptOutFile>game.js</TypeScriptOutFile>
-    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+    <TypeScriptModuleKind>none</TypeScriptModuleKind>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>

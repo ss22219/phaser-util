@@ -4,3 +4,9 @@ F:\www\phaser-util\bin\Phaser.pdb
 F:\www\phaser-util\obj\Debug\Phaser.dll
 F:\www\phaser-util\obj\Debug\Phaser.pdb
 F:\www\phaser-util\obj\Debug\Phaser.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Source\Repos\phaser-util\bin\Phaser.dll.config
+C:\Users\Administrator\Source\Repos\phaser-util\bin\Phaser.dll
+C:\Users\Administrator\Source\Repos\phaser-util\bin\Phaser.pdb
+C:\Users\Administrator\Source\Repos\phaser-util\obj\Debug\Phaser.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Source\Repos\phaser-util\obj\Debug\Phaser.dll
+C:\Users\Administrator\Source\Repos\phaser-util\obj\Debug\Phaser.pdb
