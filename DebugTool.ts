@@ -30,7 +30,7 @@
         var callback = state.game.state.onRenderCallback;
         state.game.state.onRenderCallback = () => {
             this.render();
-            //callback.call(state);
+            callback.call(state);
         };
         var updateCallback = state.game.state.onUpdateCallback;
         state.game.state.onUpdateCallback = () => {
