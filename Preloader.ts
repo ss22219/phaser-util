@@ -14,7 +14,7 @@
         }
 
         create() {
-            this.game.state.start("World2")
+            this.game.state.start("World1")
         }
 
         update() {
